@@ -1,14 +1,21 @@
+import React, { useState } from 'react';
+import {Outlet, useNavigate} from 'react-router-dom'
+
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  UploadOutlined,
   HomeOutlined,
-  VideoCameraOutlined,
+  GithubOutlined,
+  EditOutlined,
+  SettingOutlined,
+  LogoutOutlined
 } from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
-import React, { useState } from 'react';
-import {Outlet, useNavigate} from 'react-router-dom'
+import { Layout, Menu, Avatar } from 'antd';
+
 import './index.scss'
+import avatarPic from '../../assets/avatar.jpeg'
+
+
 const { Header, Sider, Content } = Layout;
 
 function ManageLayout(){
@@ -47,10 +54,39 @@ function ManageLayout(){
             padding: 0,
           }}
         >
-          {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-            className: 'trigger',
-            onClick: () => setCollapsed(!collapsed),
-          })}
+          <div className='header-part'>
+            {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+              className: 'trigger',
+              onClick: () => setCollapsed(!collapsed),
+            })}
+            <div className='right-part'>
+              <div>
+                <a href='https://github.com/kouteisang' target="_blank" style={{color:"#333"}}>
+                  <GithubOutlined />
+                </a>
+              </div>
+              <div className='avatar'>
+                <Avatar size='large' src={avatarPic}></Avatar>
+                <div className='avatar-content'>
+                  <ul>
+                    <li>用户设置</li>
+                    <li>
+                      <EditOutlined />
+                      <span>个人设置</span>
+                    </li>
+                    <li>
+                      <SettingOutlined />
+                      <span>系统设置</span>
+                    </li>
+                    <li>
+                      <LogoutOutlined />
+                      <span>退出登录</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </Header>
         <Content
           className="site-layout-background site-new-bg"
@@ -67,4 +103,4 @@ function ManageLayout(){
   )
 }
 
-export default ManageLayout
+export default ManageLayout;

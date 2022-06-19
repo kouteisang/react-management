@@ -10,9 +10,9 @@
     transition: color 0.3s;
   }
   
-  #components-layout-demo-custom-trigger .trigger:hover {
-    color: #1890ff;
-  }
+#components-layout-demo-custom-trigger .trigger:hover {
+   color: #1890ff;
+}
   
   #components-layout-demo-custom-trigger .logo {
     height: 32px;
@@ -33,3 +33,67 @@
     background-color: rgb(238, 240, 244)
   }
 
+
+.ant-layout .ant-layout-header{
+  overflow: visible;
+}
+
+.header-part{
+  display: flex;   
+  justify-content: space-between;
+  align-items: center;
+  .right-part{
+    display: flex;
+    .avatar{
+      margin: 0 10px;
+      position: relative;
+    }
+
+    .avatar:hover .avatar-content{
+      display: block;
+    }
+
+    .avatar-content{
+      width: 200px;
+      background-color: #fff;
+      border-radius: 3px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+      position: absolute;
+      right: 0;
+      top: 65px;
+      z-index: 999;
+      display: none;
+
+      ul li{
+        color: #3f3f3f;
+        height: 37px;
+        line-height: 37px;
+        font-size: .9rem;
+        padding-left: 15px;
+      }
+
+      ul li:hover{
+        background-color: rgb(225, 246, 255);
+        cursor: pointer;
+      }
+
+      ul li:first-child:hover{
+        background-color: #fff;
+        cursor: auto;
+      }
+
+      ul>li:first-child{
+        border-bottom: 1px solid #cfcfcf;
+        color: #cfcfcf;
+      }
+
+      ul>li:nth-child(3){
+        border-bottom: 1px solid #cfcfcf;
+      }
+
+      ul li span{
+        padding-right: 3px;
+      }
+    }
+  }
+}
