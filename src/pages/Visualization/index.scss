@@ -1,0 +1,41 @@
+.icon{
+    display: flex;
+    height: 100px;
+    align-items: center;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-radius: 8px;
+    margin: 0 5px;
+}
+
+.icon-style{
+    font-size: 4rem;
+    opacity: .8;
+    padding-left: 1rem;
+    padding-right: .5rem;
+}
+
+.app-name{
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.facebook{
+    background-color: rgb(9, 105, 240);
+}
+
+
+.instragram{
+    background-color: rgb(244, 68, 69);
+}
+
+
+.twitter{
+    background-color: rgb(0, 145, 231);
+}
+
+
+.whatsapp{
+    background-color: rgb(0, 199, 58);
+}
