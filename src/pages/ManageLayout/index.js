@@ -8,7 +8,8 @@ import {
   GithubOutlined,
   EditOutlined,
   SettingOutlined,
-  LogoutOutlined
+  LogoutOutlined,
+  FormOutlined
 } from '@ant-design/icons';
 import { Layout, Menu, Avatar } from 'antd';
 
@@ -30,6 +31,27 @@ function ManageLayout(){
       onClick: function(){
         navigate('/')
       }
+    },
+    {
+      label: 'form',
+      icon: <FormOutlined/>,
+      key: 'submenu',
+      children:[
+        {
+          label:"General Form", 
+          key:"general-form", 
+          onClick:function(){
+            navigate('/form/general-form')
+          }
+        },
+        {
+          label:"Step Form", 
+          key:"step-form",
+          onClick:function(){
+            navigate('/form/step-form')
+          }
+        }, 
+      ]
     }
   ]
 

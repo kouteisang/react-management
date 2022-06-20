@@ -1,10 +1,9 @@
-import {useNavigate} from 'react-router-dom'
+import {Navigate} from 'react-router-dom'
 
 function AuthComponent({children}){
-    const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem("user"));
     if(user == null){
-        navigate('/login');
+        return <Navigate to='/login' replace></Navigate>
     }else{
         return <>{children}</>
     }
