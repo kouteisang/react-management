@@ -13,7 +13,8 @@ import {
     AutoComplete,
     Cascader,
     Select,
-    Button} from "antd";
+    Button,
+    message} from "antd";
 import './index.scss'
 import CustomerBreadcrumb from "../../../component/CustomerBreadcrumb";
 
@@ -83,10 +84,13 @@ function GeneralForm(){
 
     const onFinish = (values) => {
         console.log('Success:', values);
+        message.success("Success :)");
+
     };
     
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
+        message.warning("Please check the form again :(");
     };
 
     const compareWithNext = (rule, value, callback)=>{

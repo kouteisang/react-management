@@ -49,10 +49,6 @@
       position: relative;
     }
 
-    .avatar:hover .avatar-content{
-      display: block;
-    }
-
     .avatar-content{
       width: 200px;
       background-color: #fff;
@@ -63,6 +59,8 @@
       top: 65px;
       z-index: 999;
       display: none;
+      // animation-name: frames;
+      // animation-duration: 10s;
 
       ul li{
         color: #3f3f3f;
@@ -95,5 +93,19 @@
         padding-right: 3px;
       }
     }
+
+    .avatar:hover .avatar-content{
+      display: block;
+    }
+
+  }
+}
+
+@keyframes frames {
+  from{
+    height: 0px;
+  }
+  to{
+    height: 150px;
   }
 }

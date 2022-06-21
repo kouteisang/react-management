@@ -9,7 +9,8 @@ import {
   EditOutlined,
   SettingOutlined,
   LogoutOutlined,
-  FormOutlined
+  FormOutlined,
+  PaperClipOutlined
 } from '@ant-design/icons';
 import { Layout, Menu, Avatar } from 'antd';
 
@@ -35,7 +36,7 @@ function ManageLayout(){
     {
       label: 'form',
       icon: <FormOutlined/>,
-      key: 'submenu',
+      key: 'form',
       children:[
         {
           label:"General Form", 
@@ -52,8 +53,28 @@ function ManageLayout(){
           }
         }, 
       ]
+    },
+    {
+      label:"Others",
+      icon:<PaperClipOutlined />,
+      key: "others",
+      children:[
+        {
+          label:"Rich Text",
+          key:"rich-text",
+          onClick:function(){
+            navigate("/others/rich-test")
+          }
+        }
+      ]
     }
   ]
+
+
+  const logout = ()=>{
+    localStorage.removeItem("user");
+    navigate('/login');
+  }
 
 
 
@@ -100,7 +121,7 @@ function ManageLayout(){
                       <SettingOutlined />
                       <span>系统设置</span>
                     </li>
-                    <li>
+                    <li onClick = {logout}>
                       <LogoutOutlined />
                       <span>退出登录</span>
                     </li>
