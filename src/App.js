@@ -6,6 +6,7 @@ import Visualization from './pages/Visualization'
 import GeneralForm from './pages/Form/GeneralForm';
 import StepForm from './pages/Form/StepForm';
 import Editor from './pages/Editor';
+import TableLayout from './pages/Table'
 import 'antd/dist/antd.min.css'
 import './App.css';
 
@@ -20,6 +21,7 @@ function App() {
             <Route path='/form/general-form' element={<GeneralForm/>}></Route>
             <Route path='/form/step-form' element={<StepForm/>}></Route>
             <Route path="/others/rich-test" element={<Editor/>}></Route>
+            <Route path="/show/table" element={<TableLayout/>}></Route>
           </Route>
           <Route path='/login' element={<Login/>}></Route>
         </Routes>

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import {Outlet, useNavigate} from 'react-router-dom'
+import {
+  Outlet, 
+  useNavigate, 
+  useLocation} from 'react-router-dom'
 
 import {
   MenuFoldOutlined,
@@ -10,7 +13,8 @@ import {
   SettingOutlined,
   LogoutOutlined,
   FormOutlined,
-  PaperClipOutlined
+  PaperClipOutlined,
+  PieChartOutlined
 } from '@ant-design/icons';
 import { Layout, Menu, Avatar } from 'antd';
 
@@ -23,10 +27,23 @@ const { Header, Sider, Content } = Layout;
 function ManageLayout(){
   const [collapsed, setCollapsed] = useState(false);
   const navigate  = useNavigate();
+  const location = useLocation();
 
+  const getPathSelect = () => {
+    let paths = location.pathname.split("/");
+    let temp = [];
+    let t = "";
+    for(let i = 1; i < paths.length-1; i ++){
+      t += "/";
+      t += paths[i];
+      temp.push(t);
+    }
+    return temp;
+  }
+  
   const items = [
     {
-      key: 'Home',
+      key: '/',
       icon: <HomeOutlined />,
       label: 'Home',
       onClick: function(){
@@ -36,18 +53,18 @@ function ManageLayout(){
     {
       label: 'form',
       icon: <FormOutlined/>,
-      key: 'form',
+      key: '/form',
       children:[
         {
           label:"General Form", 
-          key:"general-form", 
+          key:"/form/general-form", 
           onClick:function(){
             navigate('/form/general-form')
           }
         },
         {
           label:"Step Form", 
-          key:"step-form",
+          key:"/form/step-form",
           onClick:function(){
             navigate('/form/step-form')
           }
@@ -57,13 +74,27 @@ function ManageLayout(){
     {
       label:"Others",
       icon:<PaperClipOutlined />,
-      key: "others",
+      key: "/others",
       children:[
         {
           label:"Rich Text",
-          key:"rich-text",
+          key:"/others/rich-test",
           onClick:function(){
             navigate("/others/rich-test")
+          }
+        }
+      ]
+    },
+    {
+      label:"show",
+      icon:<PieChartOutlined />,
+      key: "/show",
+      children:[
+        {
+          label:"Table",
+          key:"/show/table",
+          onClick:function(){
+            navigate("/show/table")
           }
         }
       ]
@@ -86,8 +117,10 @@ function ManageLayout(){
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={[location.pathname]}
           items={items}
+          defaultOpenKeys={getPathSelect()}
+          
         />
       </Sider>
       <Layout className="site-layout">
