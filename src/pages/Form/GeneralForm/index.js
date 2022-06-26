@@ -95,7 +95,7 @@ function GeneralForm(){
 
     const compareWithNext = (rule, value, callback)=>{
         let passwordAgain = form.getFieldValue("PasswordAgain");
-        if(passwordAgain != null && passwordAgain != value){
+        if(passwordAgain !== null && passwordAgain !== value){
             callback("The password is not same!")
         }else{
             callback();
@@ -104,7 +104,7 @@ function GeneralForm(){
 
     const compareWithBefore = (rule, value, callback) => {
         let password = form.getFieldValue("Password")
-        if(password != value){
+        if(password !== value){
             callback("The password is not same!")
         }else{
             callback();

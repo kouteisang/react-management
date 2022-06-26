@@ -137,7 +137,7 @@ function ManageLayout(){
             })}
             <div className='right-part'>
               <div>
-                <a href='https://github.com/kouteisang' target="_blank" style={{color:"#333"}}>
+                <a href='https://github.com/kouteisang' target="_blank" rel="noreferrer" style={{color:"#333"}}>
                   <GithubOutlined />
                 </a>
               </div>

@@ -9,7 +9,7 @@ function Login(){
     const navigate = useNavigate();
 
     const onFinish = (values) => {
-        if(values.username == "admin" || values.username == "guest"){
+        if(values.username === "admin" || values.username === "guest"){
             localStorage.setItem("user", JSON.stringify(values));
             message.success("Welcome :)");
             navigate("/");
