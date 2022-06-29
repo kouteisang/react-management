@@ -1,17 +1,30 @@
 import { Button, Form, Input, Card, notification, message} from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { LOGIN_ACTION } from '../../redux/action/login';
 import './index.scss'
 
+function Login(props){
 
-function Login(){
-
+    const {loginInfo, LOGIN_ACTION} = props;
     const navigate = useNavigate();
 
     const onFinish = (values) => {
         if(values.username === "admin" || values.username === "guest"){
-            localStorage.setItem("user", JSON.stringify(values));
+            // localStorage.setItem("user", JSON.stringify(values));
+            let permission = 1;
+            if(values.username === "guest"){
+                permission = 0;
+            }
+            const data = {
+                username: values.username,
+                isLogin: true,
+                permission: permission
+            }
+            LOGIN_ACTION(data);
             message.success("Welcome :)");
+            console.log(loginInfo)
             navigate("/");
         }else{
             message.error("Please try again :(");
@@ -95,4 +108,11 @@ function Login(){
 
 }
 
-export default Login;
+const loginContainer = connect(
+    (state) => ({loginInfo:state.loginInfo}),
+    {
+        LOGIN_ACTION
+    }
+)(Login)
+
+export default loginContainer;

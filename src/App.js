@@ -1,7 +1,7 @@
 import {BrowserRouter,  Routes, Route } from 'react-router-dom';
 import Loadable  from 'react-loadable';
-import Layout from './pages/ManageLayout'
-import Login from './pages/Login';
+import Layout from './container/ManageLayout'
+import Login from './container/Login';
 import AuthComponent from './component/AuthComponent'
 import Visualization from './pages/Visualization'
 //import StepForm from './pages/Form/StepForm';

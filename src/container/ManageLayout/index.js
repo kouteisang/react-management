@@ -3,7 +3,7 @@ import {
   Outlet, 
   useNavigate, 
   useLocation} from 'react-router-dom'
-
+import { LOGOUT_ACTION } from '../../redux/action/login';
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -20,11 +20,13 @@ import { Layout, Menu, Avatar } from 'antd';
 
 import './index.scss'
 import avatarPic from '../../assets/avatar.jpeg'
+import { connect } from 'react-redux';
 
 
 const { Header, Sider, Content } = Layout;
 
-function ManageLayout(){
+function ManageLayout(props){
+  const {loginInfo, LOGOUT_ACTION} = props;
   const [collapsed, setCollapsed] = useState(false);
   const navigate  = useNavigate();
   const location = useLocation();
@@ -103,7 +105,9 @@ function ManageLayout(){
 
 
   const logout = ()=>{
-    localStorage.removeItem("user");
+    const data = {...loginInfo, isLogin:false};
+    console.log(data)
+    LOGOUT_ACTION(data);
     navigate('/login');
   }
 
@@ -179,4 +183,11 @@ function ManageLayout(){
   )
 }
 
-export default ManageLayout;
+const layoutContainer = connect(
+  (state) => ({loginInfo:state.loginInfo}),
+  {
+    LOGOUT_ACTION
+  }
+)(ManageLayout)
+
+export default layoutContainer;

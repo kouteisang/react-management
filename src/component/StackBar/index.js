@@ -182,7 +182,6 @@ function StackBar(){
     useEffect(()=>{
       setTimeout(function(){
         stachBarChartInit();
-        console.log("123")
       }, 30)
     })
 
