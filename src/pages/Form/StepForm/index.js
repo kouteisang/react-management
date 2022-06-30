@@ -111,7 +111,6 @@ function FormTwo(props){
 }
 
 function FormOne(props){
-    console.log(props)
     const {email, information, username} = props;
     const [form] = Form.useForm();
     const mailRef = useRef(null);
