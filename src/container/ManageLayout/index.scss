@@ -58,7 +58,10 @@
       right: 0;
       top: 65px;
       z-index: 999;
-      display: none;
+      height: 0px;
+      overflow: hidden;
+      // height: 150px;
+      // display: none;
       // animation-name: frames;
       // animation-duration: 10s;
 
@@ -95,7 +98,8 @@
     }
 
     .avatar:hover .avatar-content{
-      display: block;
+      height: 148px;
+      transition: height .5s;
     }
 
   }
